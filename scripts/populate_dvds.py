@@ -33,7 +33,7 @@ inc = 1
 for row in reader:
     inc += 1
     
-    if inc >= 81830:
+    if inc >= 149002:
         print inc
         #mysql START
         new_genre, created = Genre.objects.get_or_create(genre=unidecode(row['Genre']))
