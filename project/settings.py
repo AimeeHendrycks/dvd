@@ -97,18 +97,7 @@ DATABASES = {
         'PASSWORD': 'root',
         'PORT': '',
     },
-    'cassandra': {
-        'ENGINE': 'django_cassandra_engine',
-        'NAME': 'DVD_data_4',
-        'TEST_NAME': 'test_db',
-        'HOST': '127.0.0.1',
-        'OPTIONS': {
-            'replication': {
-                'strategy_class': 'SimpleStrategy',
-                'replication_factor': 1
-            }
-        }
-    }
+    
 }
 
 
