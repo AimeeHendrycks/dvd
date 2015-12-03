@@ -30,8 +30,4 @@ urlpatterns = [
     url(r'^dvd_detail_cass/(?P<pk>\d+)/$', 'main.views.dvd_detail_cass'),
     url(r'^dvd_detail_mysql/(?P<pk>\d+)/$', 'main.views.dvd_detail_mysql'),
 
-
-
-    url(r'^__debug__/', include(debug_toolbar.urls)),
-
 ]
