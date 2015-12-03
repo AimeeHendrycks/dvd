@@ -33,10 +33,10 @@ for row in reader:
     inc += 1
     print inc
     #mysql START
-    new_genre, created = Genre.objects.using('mysql').get_or_create(genre=unidecode(row['Genre']))
-    new_studio, created = Studio.objects.using('mysql').get_or_create(studio=unidecode(row['Studio']))
+    new_genre, created = Genre.objects.get_or_create(genre=unidecode(row['Genre']))
+    new_studio, created = Studio.objects.get_or_create(studio=unidecode(row['Studio']))
 
-    new_mysql_dvd, created = Dvd.objects.using('mysql').get_or_create(dvd_id=row['ID'])
+    new_mysql_dvd, created = Dvd.objects.get_or_create(dvd_id=row['ID'])
     new_mysql_dvd.title = unidecode(row['DVD_Title'])
     print 'MySQL: ' + str(new_mysql_dvd.title) + ', ' + str(new_mysql_dvd.id)
     new_mysql_dvd.released = row['Released']
