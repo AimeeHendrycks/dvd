@@ -1,0 +1,11 @@
+<html>
+<head></head>
+<body>
+<ol>
+    {% for dvd in dvd_list%}
+    <li><a href='/dvd_detail_postgres/{{dvd.pk}}'>{{dvd.title}}</a></li>
+    {%endfor%}
+
+</ol>
+</body>
+</html>
