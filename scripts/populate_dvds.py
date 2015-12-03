@@ -28,38 +28,34 @@ csv_file = open(dvd_csv, 'r')
 reader = csv.DictReader(csv_file)
 print reader
 
-cluster = Cluster(['127.0.0.1'])
-session = cluster.connect()
-session.set_keyspace('DVD_data_4')
 inc = 1
 for row in reader:
     inc += 1
     print inc
-    if inc >= 203713:
     #mysql START
-        new_genre, created = Genre.objects.using('mysql').get_or_create(genre=unidecode(row['Genre']))
-        new_studio, created = Studio.objects.using('mysql').get_or_create(studio=unidecode(row['Studio']))
+    new_genre, created = Genre.objects.using('mysql').get_or_create(genre=unidecode(row['Genre']))
+    new_studio, created = Studio.objects.using('mysql').get_or_create(studio=unidecode(row['Studio']))
 
-        new_mysql_dvd, created = Dvd.objects.using('mysql').get_or_create(dvd_id=row['ID'])
-        new_mysql_dvd.title = unidecode(row['DVD_Title'])
-        print 'MySQL: ' + str(new_mysql_dvd.title) + ', ' + str(new_mysql_dvd.id)
-        new_mysql_dvd.released = row['Released']
-        new_mysql_dvd.status = row['Status']
-        new_mysql_dvd.sound =  row['Sound']
-        new_mysql_dvd.versions = row['Versions'] 
-        new_mysql_dvd.price = row['Price']
-        new_mysql_dvd.rating = row['Rating']
-        new_mysql_dvd.year = row['Year']
-        new_mysql_dvd.genre = new_genre
-        new_mysql_dvd.studio = new_studio
-        new_mysql_dvd.aspect = row['Aspect']
-        new_mysql_dvd.upc = row['UPC']
-        new_mysql_dvd.dvd_release_date = row['DVD_ReleaseDate']
-        new_mysql_dvd.timestamp = row['Timestamp']
-    # mysql STOP
+    new_mysql_dvd, created = Dvd.objects.using('mysql').get_or_create(dvd_id=row['ID'])
+    new_mysql_dvd.title = unidecode(row['DVD_Title'])
+    print 'MySQL: ' + str(new_mysql_dvd.title) + ', ' + str(new_mysql_dvd.id)
+    new_mysql_dvd.released = row['Released']
+    new_mysql_dvd.status = row['Status']
+    new_mysql_dvd.sound =  row['Sound']
+    new_mysql_dvd.versions = row['Versions'] 
+    new_mysql_dvd.price = row['Price']
+    new_mysql_dvd.rating = row['Rating']
+    new_mysql_dvd.year = row['Year']
+    new_mysql_dvd.genre = new_genre
+    new_mysql_dvd.studio = new_studio
+    new_mysql_dvd.aspect = row['Aspect']
+    new_mysql_dvd.upc = row['UPC']
+    new_mysql_dvd.dvd_release_date = row['DVD_ReleaseDate']
+    new_mysql_dvd.timestamp = row['Timestamp']
+# mysql STOP
 
-    
-        new_mysql_dvd.save()
+
+    new_mysql_dvd.save()
 
 
 
