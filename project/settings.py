@@ -79,17 +79,8 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
 
 DATABASES = {
-    #managed through pgAdmin
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'DVD_data_3',
-        'USER': 'root',
-        'PASSWORD': 'root',
-        'HOST' : '127.0.0.1',
-        'PORT': '',
-    },
     #managed through phpmyadmin
-    'mysql': {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'DVD_data',
         'HOST': '127.0.0.1',

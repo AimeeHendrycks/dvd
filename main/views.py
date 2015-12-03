@@ -36,30 +36,17 @@ class DvdListView(ListView):
     template_name = "dvd_list_cbv.html"
     paginate_by = 10
 
-#postgres
-def dvd_list_postgres(request):
+
+def dvd_list_mysql(request):
     context = {}
     dvd_list = Dvd.objects.all()[:1000]
     context['dvd_list'] = dvd_list
     return render_to_response('dvd_list.html', context, context_instance=RequestContext(request))
 
-def dvd_list_mysql(request):
-    context = {}
-    dvd_list = Dvd.objects.using('mysql').all()[:1000]
-    context['dvd_list'] = dvd_list
-    return render_to_response('dvd_list.html', context, context_instance=RequestContext(request))
-
-
-#use either postgres or mysql for simple detail (speed is negligable)
-def dvd_detail_postgres(request, pk):
-    context = {}
-    dvd= Dvd.objects.get(pk=pk)
-    context['dvd'] = dvd
-    return render_to_response('dvd_detail.html', context, context_instance=RequestContext(request))
 
 def dvd_detail_mysql(request, pk):
     context = {}
-    dvd= Dvd.objects.using('mysql').get(pk=pk)
+    dvd= Dvd.objects.get(pk=pk)
     context['dvd'] = dvd
     return render_to_response('dvd_detail.html', context, context_instance=RequestContext(request))
 
@@ -70,7 +57,7 @@ def dvd_search(request):
     page = int(request.GET.get("page", '1'))
     search_term = request.GET.get('search_term', '')
     print search_term
-    dvds = Dvd.objects.using('mysql').filter(title__istartswith=search_term)[:200]
+    dvds = Dvd.objects.filter(title__istartswith=search_term)[:200]
 
     paginator = Paginator(dvds, 10)
 
@@ -121,7 +108,7 @@ def dvd_list(request):
     
     page = int(request.GET.get("page", '1'))
 
-    dvds = Dvd.objects.using('mysql').filter(title__istartswith=letter)
+    dvds = Dvd.objects.filter(title__istartswith=letter)
 
     print page 
 
@@ -210,7 +197,7 @@ def dvd_directory(request):
 
 def dvd_direct(request, char):
 
-    dvds = Dvd.objects.using('mysql').filter(title__startswith=char)[:30]
+    dvds = Dvd.objects.filter(title__startswith=char)[:30]
 
     api_dict = {}
 
