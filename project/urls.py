@@ -23,11 +23,7 @@ urlpatterns = [
     url(r'^dvd_detail/(?P<pk>\d+)/$', 'main.views.dvd_detail'),
     url(r'^dvd_directory/$', 'main.views.dvd_directory'),
     url(r'^dvd_direct/(?P<char>[^ ])/$', 'main.views.dvd_direct'),
-    url(r'^dvd_list_postgres/$', 'main.views.dvd_list_postgres'),
     url(r'^dvd_list_mysql/$', 'main.views.dvd_list_mysql'),
-    url(r'^dvd_list_cass/$', 'main.views.dvd_list_cass'),
-    url(r'^dvd_detail_postgres/(?P<pk>\d+)/$', 'main.views.dvd_detail_postgres'),
-    url(r'^dvd_detail_cass/(?P<pk>\d+)/$', 'main.views.dvd_detail_cass'),
     url(r'^dvd_detail_mysql/(?P<pk>\d+)/$', 'main.views.dvd_detail_mysql'),
 
 ]

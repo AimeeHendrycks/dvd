@@ -30,7 +30,7 @@ def dvd_list_dbv(request):
 
 class DvdListView(ListView):  
     model = Dvd
-    queryset = Dvd.objects.all()[:100]
+    queryset = Dvd.objects.all()[:2000]
     template_name = "dvd_list_cbv.html"
     context_object_name = "dvd_list"
     template_name = "dvd_list_cbv.html"
@@ -39,7 +39,7 @@ class DvdListView(ListView):
 
 def dvd_list_mysql(request):
     context = {}
-    dvd_list = Dvd.objects.all()[:1000]
+    dvd_list = Dvd.objects.all()[:2000]
     context['dvd_list'] = dvd_list
     return render_to_response('dvd_list.html', context, context_instance=RequestContext(request))
 
