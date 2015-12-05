@@ -25,7 +25,7 @@ SECRET_KEY = '##-_n$%#h7d_jmqgznptnctl7ity0(lu)h*lne8+o9x))of2q+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.aimeehendrycks.me',]
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -40,7 +40,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'corsheaders',
     'main',
-
 
 )
 
