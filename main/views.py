@@ -7,6 +7,10 @@ from django.core.paginator import Paginator, InvalidPage, EmptyPage
 import string
 # Create your views here.
 
+def home(request):
+    context = {}
+    return render_to_response('home.html',context, context_instance=RequestContext(request))
+
 
 def dvd_list_dbv(request):
     context = {}
