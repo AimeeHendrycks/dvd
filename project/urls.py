@@ -23,7 +23,7 @@ urlpatterns = [
     url(r'^dvd_detail/(?P<pk>\d+)/$', 'main.views.dvd_detail'),
     url(r'^dvd_list_mysql/$', 'main.views.dvd_list_mysql'),
     url(r'^dvd_detail_mysql/(?P<pk>\d+)/$', 'main.views.dvd_detail_mysql'),
-    url(r'^$', 'main.views.home'),
-    url(r'^index/$', 'main.views.index'),
+    url(r'^$', 'main.views.index'),
+    url(r'^api/$', 'main.views.home'),
 
 ]
