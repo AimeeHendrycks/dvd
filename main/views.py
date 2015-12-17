@@ -11,6 +11,9 @@ def home(request):
     context = {}
     return render_to_response('home.html',context, context_instance=RequestContext(request))
 
+def index(request):
+    context = {}
+    return render_to_response('index.html',context, context_instance=RequestContext(request))
 
 def dvd_list_dbv(request):
     context = {}

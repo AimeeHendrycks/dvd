@@ -22,7 +22,7 @@ var setUp = function() {
 
       $.ajax({
           type:'GET',
-          url:'http://127.0.0.1:8000/dvd_search/',
+          url:'http://dvd.aimeehendrycks.me/dvd_search/',
           data:{},
           success: function(data){
               nav_template = template1(data);
@@ -50,7 +50,7 @@ $('#pagination-search').on('click', '.page-button', function(e) {
               $('#dvd-search').show();
               $.ajax({
                   type:'GET',
-                  url:'http://127.0.0.1:8000/dvd_search/',
+                  url:'http://dvd.aimeehendrycks.me/dvd_search/',
                   data:{'page': e.target.id, 'search_term': search_term},
                   success: function(data) {
 
@@ -78,7 +78,7 @@ $('#pagination-list').on('click', '.page-button', function(e) {
               $('#dvd-list').show();
               $.ajax({
                   type:'GET',
-                  url:'http://127.0.0.1:8000/dvd_list/',
+                  url:'http://dvd.aimeehendrycks.me/dvd_list/',
                   data:{'page': e.target.id, 'letter': page_letter},
                   success: function(data) {
 
@@ -112,7 +112,7 @@ $('#nav-list').on('click', '#search-dvds', function(e){
 
           $.ajax({
               type:'GET',
-              url:'http://127.0.0.1:8000/dvd_search/',
+              url:'http://dvd.aimeehendrycks.me/dvd_search/',
               data:{},
               success: function(data){
                   html_template = template2(data)
@@ -140,7 +140,7 @@ var nav_list_letter = function() {
 
           $.ajax({
           type:'GET',
-          url:'http://127.0.0.1:8000/dvd_list/',
+          url:'http://dvd.aimeehendrycks.me/dvd_list/',
           data:{'letter': e.target.id},
           success: function(data) {
 
@@ -171,7 +171,7 @@ $('#dvd-search').on('click', '.dvd', function(e){
 
         $.ajax({
             type:'GET',
-            url:'http://127.0.0.1:8000/dvd_detail/' + e.target.id,
+            url:'http://dvd.aimeehendrycks.me/dvd_detail/' + e.target.id,
             data:{},
             success: function(data){
 
@@ -195,7 +195,7 @@ $('#dvd-list').on('click', '.dvd', function(e){
 
         $.ajax({
             type:'GET',
-            url:'http://127.0.0.1:8000/dvd_detail/' + e.target.id,
+            url:'http://dvd.aimeehendrycks.me/dvd_detail/' + e.target.id,
             data:{},
             success: function(data){
                 detail_template = template6(data)
@@ -217,7 +217,7 @@ $('#search').on('keyup', function(){
 
           $.ajax({
           type:'GET',
-          url:'http://127.0.0.1:8000/dvd_search/',
+          url:'http://dvd.aimeehendrycks.me/dvd_search/',
           data:{'search_term': search_term},
           success: function(data) {
 
