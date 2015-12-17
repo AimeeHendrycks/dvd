@@ -23,7 +23,7 @@ templates['dvd_detail'] = template({"compiler":[7,">= 4.0.0"],"main":function(co
     + alias4(((helper = (helper = helpers.dvd_release_date || (depth0 != null ? depth0.dvd_release_date : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"dvd_release_date","hash":{},"data":data}) : helper)))
     + "</p>\n    <p> Genre: "
     + alias4(((helper = (helper = helpers.genre || (depth0 != null ? depth0.genre : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"genre","hash":{},"data":data}) : helper)))
-    + "</p>\n    <p><a class=\"btn btn-default\" href=\"\\" role=\"button\"> &laquo; Go back to DVD list</a></p>\n\n  </div>\n</div>";
+    + "</p>\n    <p><a class=\"btn btn-default\" href=\"/\" role=\"button\"> &laquo; Go back to DVD list</a></p>\n\n  </div>\n</div>";
 },"useData":true});
 templates['dvd_list'] = template({"1":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : {}, alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
