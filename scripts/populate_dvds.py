@@ -32,30 +32,30 @@ print reader
 inc = 1
 for row in reader:
     inc += 1
-    
-    print inc
-    #mysql START
-    new_genre, created = Genre.objects.get_or_create(genre=unidecode(row['Genre']))
-    new_studio, created = Studio.objects.get_or_create(studio=unidecode(row['Studio']))
+    if inc >= 252450:
+        print inc
+        #mysql START
+        new_genre, created = Genre.objects.get_or_create(genre=unidecode(row['Genre']))
+        new_studio, created = Studio.objects.get_or_create(studio=unidecode(row['Studio']))
 
-    new_mysql_dvd, created = Dvd.objects.get_or_create(dvd_id=row['ID'])
-    new_mysql_dvd.title = unidecode(row['DVD_Title'])
-    print 'MySQL: ' + str(new_mysql_dvd.title) + ', ' + str(new_mysql_dvd.id)
-    new_mysql_dvd.released = row['Released']
-    new_mysql_dvd.status = row['Status']
-    new_mysql_dvd.sound =  row['Sound']
-    new_mysql_dvd.versions = row['Versions'] 
-    new_mysql_dvd.price = row['Price']
-    new_mysql_dvd.rating = row['Rating']
-    new_mysql_dvd.year = row['Year']
-    new_mysql_dvd.genre = new_genre
-    new_mysql_dvd.studio = new_studio
-    new_mysql_dvd.aspect = row['Aspect']
-    new_mysql_dvd.upc = row['UPC']
-    new_mysql_dvd.dvd_release_date = row['DVD_ReleaseDate']
-    new_mysql_dvd.timestamp = row['Timestamp']
+        new_mysql_dvd, created = Dvd.objects.get_or_create(dvd_id=row['ID'])
+        new_mysql_dvd.title = unidecode(row['DVD_Title'])
+        print 'MySQL: ' + str(new_mysql_dvd.title) + ', ' + str(new_mysql_dvd.id)
+        new_mysql_dvd.released = row['Released']
+        new_mysql_dvd.status = row['Status']
+        new_mysql_dvd.sound =  row['Sound']
+        new_mysql_dvd.versions = row['Versions'] 
+        new_mysql_dvd.price = row['Price']
+        new_mysql_dvd.rating = row['Rating']
+        new_mysql_dvd.year = row['Year']
+        new_mysql_dvd.genre = new_genre
+        new_mysql_dvd.studio = new_studio
+        new_mysql_dvd.aspect = row['Aspect']
+        new_mysql_dvd.upc = row['UPC']
+        new_mysql_dvd.dvd_release_date = row['DVD_ReleaseDate']
+        new_mysql_dvd.timestamp = row['Timestamp']
 
-    new_mysql_dvd.save()
+        new_mysql_dvd.save()
 
 
 
